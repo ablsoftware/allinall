@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script type="text/javascript" src="static/js/qrcode.min.js"></script>
+<title>SimURL 氢短链丨免费短链接服务</title>
+<meta name="retiehe-verify" content="$2y$10$BEMMZ.bDh7lGQbepemWHlefCNY/YBD1MQb3voYROJwudlzTtRZIiO">
+<link rel="icon" href="https://api.simsoft.top/appicon/SimURL.png">
+<link rel="stylesheet" href="static/css/ui.css">
+<link rel="stylesheet" href="static/css/index3.css" id="stylesheet">
+<script src="static/js/ui.js"></script>
+</head>
+<body>
+<header>
+<div class="ico" style="float:right;display:inline-block;padding-top:8px"><svg onclick="notice('软件版本：V3.0 (试运行)<br>©版权所有 SimSoft丨氢软');" viewbox="0 0 1024 1024" version="1.1" width="40" height="40"><path d="M511.997953 64.766073c-246.306732 0-446.00596 199.699228-446.00596 446.00596 0 246.303662 199.699228 446.00289 446.00596 446.00289 246.309802 0 446.00903-199.699228 446.00903-446.00289C958.006983 264.465301 758.307755 64.766073 511.997953 64.766073zM511.997953 901.032364c-215.164454 0-390.255215-175.095877-390.255215-390.260331 0-215.158315 175.09076-390.250098 390.255215-390.250098 215.167524 0 390.255215 175.09076 390.255215 390.250098C902.253168 725.936487 727.165478 901.032364 511.997953 901.032364zM511.997953 399.275659c-30.763654 0-55.747675 24.990161-55.747675 55.745628L456.250278 733.775013c0 30.765701 24.985044 55.753815 55.747675 55.753815 30.763654 0 55.750745-24.987091 55.750745-55.753815L567.748698 455.021288C567.748698 424.266843 542.761608 399.275659 511.997953 399.275659zM511.997953 232.021378c-30.763654 0-55.747675 24.981974-55.747675 55.753815 0 30.760584 24.985044 55.747675 55.747675 55.747675 30.763654 0 55.750745-24.987091 55.750745-55.747675C567.748698 257.003352 542.761608 232.021378 511.997953 232.021378z" p-id="5025"></path></svg></div>
+<div class="title"><font style="font-weight:bold;color:#1E9FFF">Sim</font><font style="font-weight:normal;color:#ff7f27">URL</font></div>
+</header>
+<main>
+<div class="switch">
+<span class="item active" onclick="createLink(this)">创建短链</span>
+<span class="item" onclick="manageLink(this)">管理短链</span>
+</div>
+<div class="create">
+<div id="create-input">
+<input id="longUrl" ondblclick="inputdblclick()" placeholder="输入网址以生成短链..." autofocus="" autocomplete="off">
+<br><br>
+<div class="controls">
+<div class="control">
+<name>阅后即焚</name>
+<span class="off" onclick="switchOpen(this);" id="once"><span></span></span>
+</div>
+<div class="control">
+<name>设备限制</name>
+<select id="device">
+<option value="all">任何设备皆可访问</option>
+<option value="pc">仅限电脑访问</option>
+<option value="mobile">仅限手机访问</option>
+</select>
+</div>
+<div class="control">
+<name>访问密码</name>
+<input id="pwd" placeholder="留空即无密码">
+</div>
+<div class="control">
+<name>跳转延迟时间</name>
+<input id="timeout" type="number" placeholder="单位：秒" value="0">
+</div>
+<div class="control">
+<name>短链过期时间</name>
+<input id="expire" type="date" value="2038-01-01">
+</div>
+<div class="control">
+<name>禁止来源访问</name>
+<input id="referer" placeholder="正则语法，留空不限">
+</div>
+<div class="control">
+<name>禁止 IP 访问</name>
+<input id="ip" placeholder="正则语法，留空不限">
+</div>
+</div>
+<br><br>
+<div class="pbtn createBtn" onclick="submitCreate();">创建</div>
+</div>
+<div id="create-result">
+<div class="success">
+<h3 style="margin:0">短链创建成功</h3>
+<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+<br>
+<a id="result-link"></a>
+</div>
+<br>
+<div class="pbtn recreateBtn" onclick="recreate();">继续创建</div>
+</div>
+</div>
+<div class="manage"><div id="manage"></div></div>
+</main>
+<div class="loading" id="loading" style="transform:scale(0);">
+<div class="loadingImg loading-first"></div>
+<div class="loadingImg loading-second"></div>
+</div>
+<footer style="text-align:center">严禁任何违规站点丨<a href="tos.html">条款</a>丨<a href="email-protection.html#d4ada7bc94a7bdb9a7bbb2a0faa0bba4">举报</a></footer>
+<div class="mask" id="mask" style="display:none"></div>
+<div class="notice" id="notice" style="transform:scale(0)"><h3 style="margin:0;text-align:center">提示</h3><br><div style="height:2.5em;" class="noticetxt"></div><br><center><div class="pbtn" onclick="closeNotice()" style="background:#1E9FFF;border:1px solid #1E9FFF;">确认</div></center></div>
+<div id="urlMenu" class="urlMenu" style="transform:scale(0)">
+<h3 style="margin:0;text-align:center">操作</h3>
+<br>
+<div class="options" onclick="openUrl()"><svg width="40" height="40" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"></rect><path d="M24 36C35.0457 36 44 24 44 24C44 24 35.0457 12 24 12C12.9543 12 4 24 4 24C4 24 12.9543 36 24 36Z" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="miter"></path><path d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="miter"></path></svg><span>打开链接</span></div>
+<div class="options" onclick="copyUrl()"><svg width="40" height="40" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 38H41V16H30V4H13V38Z" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M30 4L41 16" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M7 20V44H28" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M19 20H23" stroke="#000000" stroke-width="3" stroke-linecap="square"></path><path d="M19 28H31" stroke="#000000" stroke-width="3" stroke-linecap="square"></path></svg><span>复制短链</span></div>
+<div class="options" onclick="restoreUrl()"><svg width="40" height="40" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 8V24" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M6 24L6 40" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M6 24C6 33.9411 14.0589 42 24 42C28.8556 42 33.2622 40.0774 36.5 36.9519" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M42.0007 24C42.0007 14.0589 33.9418 6 24.0007 6C18.9152 6 14.3223 8.10896 11.0488 11.5" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path></svg><span>重置次数</span></div>
+<br><br>
+<div class="options" id="restoreUrl" onclick="startUrl()"><svg width="40" height="40" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"></rect><path d="M15 24V11.8756L25.5 17.9378L36 24L25.5 30.0622L15 36.1244V24Z" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="miter"></path></svg><span>恢复短链</span></div>
+<div class="options" id="stopUrl" onclick="stopUrl()"><svg width="40" height="40" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"></rect><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="miter"></path><path d="M19 18V30" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M29 18V30" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path></svg><span>暂停短链</span></div>
+<div class="options" onclick="delUrl()"><svg width="40" height="40" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"></rect><path d="M9 10V44H39V10H9Z" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="miter"></path><path d="M20 20V33" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M28 20V33" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M4 10H44" stroke="#000000" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"></path><path d="M16 10L19.289 4H28.7771L32 10H16Z" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="miter"></path></svg><span>删除短链</span></div>
+<div class="options" onclick="viewUrl()"><svg width="40" height="40" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g><rect width="48" height="48" fill="white" fill-opacity="0.01" stroke-linejoin="round" stroke-width="3" stroke="none" fill-rule="evenodd"></rect><g transform="translate(4.000000, 4.000000)"><polygon class="strokeChange" stroke="#000000" fill="none" points="20 1.74860126e-15 14 6 6 6 6 14 1.74860126e-15 20 6 26 6 34 14 34 20 40 26 34 34 34 34 26 40 20 34 14 34 6 26 6" stroke-linejoin="round" stroke-width="3" fill-rule="nonzero"></polygon><circle class="strokeChange" stroke="#000000" fill="none" cx="20" cy="20" r="6" stroke-linejoin="round" stroke-width="3" fill-rule="nonzero"></circle></g></g></svg><span>查看配置</span></div>
+<br><br>
+<div class="pbtn" onclick="hideUrlMenu()" style="background:#1E9FFF;border:1px solid #1E9FFF;">取消</div>
+</div>
+<div id="urlInfo" class="urlInfo" style="transform:scale(0)">
+<h3 style="margin:0;text-align:center">短链配置信息</h3>
+<br><div id="urlInfoText"></div><br>
+<div class="pbtn" onclick="hideUrlInfo()" style="background:#1E9FFF;border:1px solid #1E9FFF;">确认</div>
+</div>
+<loginmask>
+<h2 style="margin:0">请登录</h2>
+<div style="font-size:1.2em">登录氢软账户即可使用氢短链</div>
+<br>
+<div class="pbtn" onclick="window.location='//account.simsoft.top/?return=//url.simsoft.top/'" style="width:200px;display:inline-block">登录/注册</div>
+</loginmask>
+<img class="bgpic" id="bgimg" src="static/picture/wall.jpg">
+<div class="bgpicmsk"></div>
+<script data-cfasync="false" src="static/js/email-decode.min.js"></script><script src="static/js/index2.js"></script>
+</body></html>

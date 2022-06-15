@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SimMusic 氢音乐丨全网音乐免费解析</title>
+<meta name="description" content="全网音乐免费解析">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="https://api.simsoft.top/appicon/SimMusic.png">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<section class="am-g about">
+<div class="am-container am-margin-vertical-xl">
+<header align="center">
+<h1 style="font-size:2.5em;margin:0"><font style='font-weight:bold;color:#1E9FFF' onclick="window.open('//simsoft.top/')">Sim</font><font style='font-weight:normal;color:#ff7f27' onclick="window.location.href='/'">Music</font></h1>
+<p style="margin-top:-10px">全网音乐极速解析下载</p>
+</header>
+<div class="am-u-lg-12 am-padding-vertical">
+<form id="j-validator" class="am-form am-margin-bottom-lg" method="post">
+<div class="am-u-md-12 am-u-sm-centered">
+<div class="am-form-group">
+<input id="j-input" autocomplete="off" data-filter="name" class="am-form-field am-input-lg am-text-left am-radius" placeholder="输入音乐名称..." data-am-loading="{loadingText: ' '}" pattern="^.+$" required="">
+<div class="am-alert am-alert-danger am-animation-shake"></div>
+</div>
+<div id="j-type" class="am-form-group am-text-center music-type">
+<select name="music_type" id="music_type">
+<option value="netease" data-am-ucheckselected="">音乐搜索</option>
+</select>
+</div>
+<button id="j-submit" type="submit" class="am-btn am-btn-primary am-btn-lg am-btn-block am-radius" data-am-loading="{spinner: 'cog', loadingText: '正在处理...', resetText: '搜索'}">搜索</button>
+</div>
+</form>
+<form id="j-main" class="am-form am-u-md-12 am-u-sm-centered music-main">
+<a type="button" id="j-back" class="am-btn am-btn-success am-btn-lg am-btn-block am-radius am-margin-bottom-lg">返回 <i class="am-icon-reply am-icon-fw"></i></a>
+<div class="am-g am-margin-bottom-sm">
+<div class="am-u-lg-4">
+<div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐地址', trigger: 'hover'}">
+<span class="am-input-group-label"><i class="am-icon-link am-icon-fw"></i></span>
+<input id="j-link" class="am-form-field" readonly="">
+<span class="am-input-group-btn">
+<a id="j-link-btn" class="am-btn am-btn-default" target="_blank">
+<i class="am-icon-external-link"></i>
+</a>
+</span>
+</div>
+</div>
+<div class="am-u-lg-4">
+<div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐直链', trigger: 'hover'}">
+<span class="am-input-group-label"><i class="am-icon-music am-icon-fw"></i></span>
+<input id="j-src" class="am-form-field" readonly="">
+<span class="am-input-group-btn">
+<a id="j-src-btn" class="am-btn am-btn-default" target="_blank">
+<i id="j-src-btn-icon" class="am-icon-external-link"></i>
+</a>
+</span>
+</div>
+</div>
+<div class="am-u-lg-4">
+<div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐歌词', trigger: 'hover'}">
+<span class="am-input-group-label"><i class="am-icon-file-text-o am-icon-fw"></i></span>
+<input id="j-lrc" class="am-form-field" readonly="">
+<span class="am-input-group-btn">
+<a id="j-lrc-btn" class="am-btn am-btn-default" target="_blank">
+<i id="j-lrc-btn-icon" class="am-icon-external-link"></i>
+</a>
+</span>
+</div>
+</div>
+</div>
+<div id="j-show" class="am-margin-vertical">
+<div id="j-player" class="aplayer"></div>
+</div>
+</form>
+</div>
+</div>
+</section>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/amazeui.min.js"></script>
+<script src="static/js/APlayer.min.js"></script>
+<script src="static/js/base64.min.js"></script>
+<script src="static/js/music.js"></script>
+
+<style>
+		*{user-select:none;outline:none!important}
+		#music_type{display:none!important}
+		.am-field-valid:focus{background:white;border:1px solid #1e9efd!important;box-shadow:0 0 0 2px #aad6ff!important}
+		#j-input{border-radius:5px!important;border:1px solid #1e9efd!important;transition:all .2s;box-shadow:0 0 0 0 white;}
+		#j-input:focus{border-radius:5px!important;border:1px solid #1e9efd!important;box-shadow:0 0 0 2px #aad6ff!important}
+		#j-input:disabled{background:}
+		.am-field-error#j-input{border:1px solid #ff7f2d!important}
+		.am-field-error#j-input:focus{box-shadow:0 0 0 2px #ffd4b9!important}
+		.am-alert{background:#ff7f2d;border:1px solid #ff7f2d;border-radius:5px!important}
+		#j-submit{background:#1e9fff!important;box-shadow:0 0 0 0 white;border-radius:5px!important;border:1px solid #1e9fff!important;transition:all .2s}
+		#j-submit:hover{background:#0092ff!important;border:1px solid #0092ff!important}
+		#j-submit:active{background:#0092ff!important;box-shadow:0 0 0 2px #aad6ff!important}
+		#j-back{background:#ff7f2d!important;box-shadow:0 0 0 0 white;border-radius:5px!important;border:1px solid #ff7f2d!important;transition:all .2s}
+		#j-back:hover{background:#ff6400!important;border:1px solid #ff6400!important}
+		#j-back:active{background:#ff6400!important;box-shadow:0 0 0 2px #ffd4b9!important}
+		.am-input-group-label{border-radius:5px 0 0 5px}
+		.am-form-field{box-shadow:0 0 0 0!important}
+		.am-btn.am-btn-default{border-radius:0 5px 5px 0;}
+		#j-player{box-shadow:none!important;border-radius:5px!important}
+		.am-u-lg-4 .am-input-group-label{border-radius: 5px 0 0 5px ;!important}
+		.aplayer-pic{border-radius:5px;box-shadow:none!important}
+		.aplayer-list-cur{background:#1e9fff!important}
+		.aplayer-list li{border:0!important;border-radius:5px!important;border-top:0!important}
+		.aplayer-icon-menu svg{display:none!important}
+		.aplayer-icon-menu{width:0!important;visibility:hidden;}
+	</style>
+<link rel="stylesheet" href="static/css/amazeui.min.css">
+</body>
+</html>

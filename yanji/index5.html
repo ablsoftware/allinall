@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="static/js/jquery.js"></script>
+<title>SimVoice 氢配音丨在线AI配音制作</title>
+<link rel="icon" href="https://api.simsoft.top/appicon/SimVoice.png">
+<meta name="description" content="在线AI配音制作">
+<link rel="stylesheet" href="static/css/index4.css">
+<link rel="stylesheet" href="static/css/ui.css">
+</head>
+<body onload="$('#v1').click()">
+<header>
+<div class="ico">
+<svg onclick="notice('软件版本：V1.51<br>©YanShuHao')" viewbox="0 0 1024 1024" version="1.1" width="40" height="40"><path d="M511.997953 64.766073c-246.306732 0-446.00596 199.699228-446.00596 446.00596 0 246.303662 199.699228 446.00289 446.00596 446.00289 246.309802 0 446.00903-199.699228 446.00903-446.00289C958.006983 264.465301 758.307755 64.766073 511.997953 64.766073zM511.997953 901.032364c-215.164454 0-390.255215-175.095877-390.255215-390.260331 0-215.158315 175.09076-390.250098 390.255215-390.250098 215.167524 0 390.255215 175.09076 390.255215 390.250098C902.253168 725.936487 727.165478 901.032364 511.997953 901.032364zM511.997953 399.275659c-30.763654 0-55.747675 24.990161-55.747675 55.745628L456.250278 733.775013c0 30.765701 24.985044 55.753815 55.747675 55.753815 30.763654 0 55.750745-24.987091 55.750745-55.753815L567.748698 455.021288C567.748698 424.266843 542.761608 399.275659 511.997953 399.275659zM511.997953 232.021378c-30.763654 0-55.747675 24.981974-55.747675 55.753815 0 30.760584 24.985044 55.747675 55.747675 55.747675 30.763654 0 55.750745-24.987091 55.750745-55.747675C567.748698 257.003352 542.761608 232.021378 511.997953 232.021378z" p-id="5025"></path></svg>
+</div>
+<div class="title">
+<font style="font-weight:bold;color:#1E9FFF" onclick="window.open('//simsoft.top/')">Sim</font><font style="font-weight:normal;color:#ff7f27" onclick="window.location.href=''">Voice</font>
+</div>
+</header>
+<center><div class="settingbox">
+<div class="selectpeople">
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=89e77dfa-9258-4198-9af7-1206fe03b491&tim=0&sp=1&text=" name="ttsvoice" id="v1"><label for="v1">标准女声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=f6e9df3a-7ced-48f5-961c-fef143d1ea79&tim=9&sp=1&text=" name="ttsvoice" id="v2"><label for="v2">甜美女声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=456f2505-ce1d-4d18-8d2a-5fa4be7e31d3&tim=6&sp=1&text=" name="ttsvoice" id="v3"><label for="v3">妩媚女声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=7b6ae59b-dae0-42e0-af5f-b06ad32f1559&tim=5&sp=1&text=" name="ttsvoice" id="v4"><label for="v4">亲切女声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=60beb67d-64d8-494a-8bf6-48d28c2986d3&tim=8&sp=1&text=" name="ttsvoice" id="v5"><label for="v5">知性女声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=ca51d156-edb3-42e2-aa4e-31c9aafd8707&tim=23&sp=1&text=" name="ttsvoice" id="v6"><label for="v6">成熟女声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=a2be2fee-9d63-4f79-9200-f5d35293ca28&tim=22&sp=1&text=" name="ttsvoice" id="v7"><label for="v7">呆萌女声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=316efd41-1062-41bd-8f32-6fe5e67e18dc&tim=1&sp=1&text=" name="ttsvoice" id="v8"><label for="v8">标准男声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=1ef85197-2e5e-4728-8cc5-e51fca99211b&tim=4&sp=1&text=" name="ttsvoice" id="v9"><label for="v9">浑厚男声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=5041be9a-7a9e-42da-bcfe-8ecdcf9e0b9d&tim=17&sp=1&text=" name="ttsvoice" id="v10"><label for="v10">严厉男声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=0c80dcff-6bce-42ad-bc19-7e0228237b79&tim=18&sp=1&text=" name="ttsvoice" id="v11"><label for="v11">磁性男声</label><br>
+<input type="radio" value="https://neuhubdemo.jd.com/api/tts/streamv2/vip?reqid=f947ffc7-1733-4da3-9ccf-bd9a6622ba67&tim=19&sp=1&text=" name="ttsvoice" id="v12"><label for="v12">活泼男声</label><br>
+</div>
+<textarea id="ttstxt" style="border:0;padding:10px;outline:none;width:100%;height:230px;border:0;resize:none;font-size:1em;font-family:微软雅黑" placeholder="在此处输入文字，建议不要超过200字..."></textarea>
+</div>
+<button onclick="tts()" class="ttsbtn pbtn" style="margin-top:5px;width:302px;padding:10px">合成语音</button></center>
+<div class="mask" style="display:none"></div>
+<div class="notice" style="transform:scale(0)">
+<h3 style="margin:0;text-align:center">提示</h3><br>
+<div class="noticetxt"></div><br><center>
+<div class="pbtn" onclick="$('.notice').css('transform','scale(0)');$('.mask').fadeOut(500)">确认</div>
+</center></div>
+<div class="result" style="transform:scale(0)">
+<h3 style="margin:0;text-align:center">合成结果</h3><br>
+<audio id="ttsaudio" src="" controls="" style="outline:none;height:50px;width:100%"></audio><br><br>
+<button class="pbtn" style="background:#1E9FFF;border:1px solid #1E9FFF;width:100%;outline:none" onclick='$(".result").attr("style","transform:scale(0)");$(".mask").fadeOut(500);document.getElementById("ttsaudio").src=""'>关闭</button>
+</div>
+
+<img class="bgpic" src="static/picture/wall.jpg">
+<div class="bgpicmsk"></div>
+<script src="static/js/index3.js"></script>
+<script src="static/js/ui.js"></script>
+</body></html>

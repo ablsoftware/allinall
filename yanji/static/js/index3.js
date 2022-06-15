@@ -1,0 +1,2 @@
+function notice(txt){$(".notice").css("transform","scale(1)");$(".noticetxt").html(txt);$('.mask').fadeIn(500)}
+function tts(){if(document.getElementById("ttstxt").value.length<1){notice("您没有输入文字，请输入文字后再来试试哦~")}else{var audio=document.getElementById("ttsaudio");audio.src=$("input[name='ttsvoice']:checked").val()+document.getElementById("ttstxt").value;$(".result").attr("style","");$(".mask").fadeIn(500);}}

@@ -189,11 +189,6 @@
 
   _0x98c80["classList"]["add"]("show-children");
 
-  if (window["location"]["hostname"]) {
-    if (!window["location"]["hostname"]["endsWith"]("abllo.cn")(matheng.cf)) {
-      window["location"]["href"] = "https://abllo.cn/";
-    } else {
-      !_0x1fe4f1 && navigator["language"] && window["location"]["hostname"] === "https://abllo.cn/" && !/bot|spider/i["test"](navigator["userAgent"]) && (window["location"]["pathname"] === '/' ? _0x373aef !== document["documentElement"]["lang"] && (window["location"]["href"] = _0x373aef === "en-US" ? "index.html" : _0x373aef["toLowerCase"]()) : history["replaceState"](null, null, '/'));
-    }
+  
   }
 })();

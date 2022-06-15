@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>数学小测验</title>
+<link rel="stylesheet" href="static/css/game.css">
+<link rel="stylesheet" href="static/css/math.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zfc2006/ABLzhaofucheng/avatar.png">
+</head>
+<body>
+<div class="status">剩余&thinsp;<span id="time">0</span>&thinsp;秒&emsp;第&thinsp;<span id="progress">00</span>&thinsp;题&emsp;共&thinsp;15&thinsp;题</div>
+<div id="question">数学小测验</div>
+<button class="option"></button>
+<button class="option"></button>
+<button class="option"></button>
+<button class="option"></button>
+<button id="allWrong" class="option">以上答案全部错误</button>
+<button id="start" class="restart">开始</button>
+<div class="final">
+<div class="score">
+<span id="yourScore">您的最终得分是</span><br>
+<span id="score" style="font-size:50px">0</span><br>
+<span id="recordLabel">纪录：</span><span id="record">0</span>
+</div>
+<button id="restart" class="restart">重新开始</button>
+</div>
+<script data-cfasync="false" src="static/js/math.js"></script>
+<script async="" defer="" src="static/js/general.js"></script>
+<body onmousemove=/HideMenu()/ oncontextmenu="return false" ondragstart="return false" onselectstart ="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="document.selection.empty()"></body>
+
+</body>
+</html>

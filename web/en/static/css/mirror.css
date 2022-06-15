@@ -1,0 +1,123 @@
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+a {
+	cursor: default;
+	text-decoration: none;
+}
+body {
+	background-color: rgb(30,30,30);
+	cursor: default;
+	font-family: Helvetica,"PingFang SC","Microsoft YaHei",sans-serif;
+	height: 100%;
+	margin: 0;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
+}
+button,
+input {
+	border: none;
+	color: white;
+	font-size: 16px;
+	height: 42px;
+	line-height: 42px;
+	padding: 0 15px;
+}
+button {
+	background-color: rgba(255,255,255,.1);
+	font-family: inherit;
+	transition: all .25s;
+	width: 100px;
+}
+button:hover,
+#bookmarks a:hover {
+	background-color: rgba(255,255,255,.2);
+}
+button:active,
+#bookmarks a:active {
+	background-color: rgba(255,255,255,.3);
+}
+header {
+	height: 42px;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+html {
+	height: 100%;
+}
+iframe {
+	background-color: white;
+	border: none;
+	height: calc(100% - 42px);
+	left: 0;
+	position: fixed;
+	top: 42px;
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	transition: all 1s;
+	width: 100%;
+}
+input {
+	background-color: transparent;
+	border: none;
+	font-family: inherit;
+	margin-right: 10px;
+	width: calc(100% - 115px);
+}
+.float-btn {
+	animation: rotate 1s linear infinite;
+	background-color: rgb(30,30,30)!important;
+	border-radius: 50%;
+	bottom: 30px;
+	cursor: pointer;
+	display: none;
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	font-family: monospace;
+	font-weight: bold;
+	height: 50px;
+	position: fixed;
+	right: 30px;
+	width: 50px;
+}
+.hidden {
+	display: none;
+}
+.preload * {
+	transition: none!important;
+}
+.shortsight {
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+}
+#bookmarks {
+	position: fixed;
+	right: 110px;
+	top: 10px;
+}
+#bookmarks a {
+	border-radius: 5px;
+	color: rgba(255,255,255,.8);
+	font-size: 14px;
+	padding: 5px 10px;
+	transition: background-color .25s;
+}
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@media (max-width: 800px) {
+	#bookmarks {
+		display: none;
+	}
+}
+@supports (-webkit-filter: blur(3px)) or (filter: blur(3px)) {
+	.float-btn {
+		display: block;
+	}
+}

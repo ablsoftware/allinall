@@ -1,0 +1,48 @@
+button {
+	background-color: rgb(0,102,204);
+	border: 1px solid rgba(255,255,255,.2);
+	color: white;
+	display: block;
+	font-size: inherit;
+	height: 100%;
+	line-height: 50px;
+	max-height: 50px;
+	transition: opacity .25s;
+	width: 100%;
+}
+button:hover {
+	opacity: .8;
+}
+button:active {
+	opacity: .6;
+}
+.option {
+	display: none;
+}
+.status {
+	color: rgba(0,0,0,.5);
+	left: 0;
+	padding: 10px;
+	text-align: right;
+	top: 0;
+}
+#question {
+	font-family: cursive,"PingFang SC","Microsoft YaHei",sans-serif;
+	font-size: 40px;
+	margin: 78px 0 100px;
+}
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: rgb(30,30,30);
+		color: white;
+	}
+	button {
+		background-color: rgb(0,68,136);
+	}
+	.score {
+		color: white;
+	}
+	.status {
+		color: rgba(255,255,255,.5);
+	}
+}

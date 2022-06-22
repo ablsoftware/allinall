@@ -194,7 +194,7 @@
     if (!window["location"]["hostname"]["endsWith"]("allinall.vercel.app")) {
       window["location"]["href"] = "https://allinall.vercel.app/";
     } else {
-      !_0x1fe4f1 && navigator["language"] && window["location"]["hostname"] === "https://abllo.cn/" && !/bot|spider/i["test"](navigator["userAgent"]) && (window["location"]["pathname"] === '/' ? _0x373aef !== document["documentElement"]["lang"] && (window["location"]["href"] = _0x373aef === "en-US" ? "index.html" : _0x373aef["toLowerCase"]()) : history["replaceState"](null, null, '/'));
+      !_0x1fe4f1 && navigator["language"] && window["location"]["hostname"] === "https://allinall.vercel.app/" && !/bot|spider/i["test"](navigator["userAgent"]) && (window["location"]["pathname"] === '/' ? _0x373aef !== document["documentElement"]["lang"] && (window["location"]["href"] = _0x373aef === "en-US" ? "index.html" : _0x373aef["toLowerCase"]()) : history["replaceState"](null, null, '/'));
     }
   }
 })();
